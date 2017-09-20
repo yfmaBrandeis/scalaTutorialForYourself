@@ -39,6 +39,7 @@ An operator identifier consists of one or more operator characters.Like
 | --- | --- | --- |
 | Abetract | Case | catch |
 | False | Do | class |
+
 Still there are many keywords in Scala.
 
 
