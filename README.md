@@ -110,5 +110,141 @@ package physics{
     }
 }
 ```
+### Scala operations
+Normal Syntax:
+
+```Scala
+Object Test{
+    def main(Args : Array[]
+var a = 50
+var b = 30
+println("a + b = "+(a+b))
+println("a - b = "+(a-b))
+println("a / b = "+(a/b))
+println("a * b = "+(a*b))
+println("a % b = "+(a%b))
+```
+The result is as follows:
+
+```
+> scalac Test.scala
+> scala Test
+> 80
+> 20
+> 1
+> 1500
+> 20
+```
+
+Other operators like `== != > < >= <=` are just as same as common language syntax.
+
+Bitwise operators are as follows:
+
+| Operator | Description(bitwise) |
+| --- | --- |
+| & | Binary AND  |
+| ! | Binary OR |
+| ^ | Binary XOR |
+| ~ | Binary Complement |
+| << | Binary Left Shift |
+| >> | Binary Right Shift |
+
+Other operators are just the same like `+= -= *= /=`
+
+### Control flow
+The **if else** style are just the same as Java.
+Let's just see some examples
+
+```Scala
+Object Test{
+    def main(Args:Array[String]){
+        var x = 20;
+        
+        if (x>25){
+            println("x is bigger than 25")
+        }else println("x is smaller than 25")
+    }
+}
+```
+It is worth to note that the **else if** statement is also available. 
+### Loop
+There are three kinds of loop in Scala : **while loop**,**do while loop** and **for loop**.
+#### While loop
+```Scala
+while (condition){
+    statement(s)
+}
+```
+#### Do while loop
+```Scala
+do{
+    statement(s)
+}while (condition)
+```
+#### For loop
+This is kind of a interesting style. Let's just focus on the examples.
+
+```Scala
+for ( var x <- Range ){
+    statement(s)
+}
+```
+Range here could be a range of numbers such as **i to j** or **i until j**. The left arrow **<-** is a generator because it is generating values from the range.
+
+```Scala
+Object Test{
+    def main(Args:Array[String]{
+        var l = 0;
+        
+        for ( l <- 1 to 3 ){
+            println("l value : "+ l )
+        }
+    }
+} 
+```
+The results will be seen as:
+
+```
+>1
+>2
+>3
+```
+And if you use **i until j**:
+
+```Scala
+Object Test{
+    def main(Args:Array[String]{
+        var l = 0;
+        
+        for ( l <- 1 until 3 ){
+            println("l value : "+ l )
+        }
+    }
+} 
+```
+
+The results will be as:
+
+
+```
+>1
+>2
+```
+
+Also we can use multiple ranges such as:
+
+```Scala
+Object Test {
+    def main(Args : Array[String]){
+        var a = 0 ;
+        var b = 0;
+        for ( a <- 1 to 3
+             b <- 1 to 3){
+             println("a + b = " + (a + b))
+        }
+    }
+}
+```
+Stay TUNED.
 
 
