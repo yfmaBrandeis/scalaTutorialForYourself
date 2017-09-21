@@ -37,10 +37,78 @@ An operator identifier consists of one or more operator characters.Like
 ### Some scala keywords
 | Keyword | keyword | Keyword |
 | --- | --- | --- |
-| Abetract | Case | catch |
+| Abstract | Case | catch |
 | False | Do | class |
 
 Still there are many keywords in Scala.
+### Declaring a variable
+It is quiet common to declare several variables. In Scala, the interesting thing is that you may have several ways to define a variable or multi variables.
 
+```Scala
+var myVar : String = "Foo"//var means this myVar can be changed
+val myVal : String = "Bar"//val means this myVal cannot be changed
+```
+Also it is valid if you do not assign a value to the variable.
+
+```Scala
+var myVar :Int;
+val myVal :String;
+```
+Also it is valid to write your code so:
+
+```Scala
+var myVar = 40
+val myVal = "Hello SCALA!"
+val {myVar,myVal} = Pair(40,"Hello SCALA!")
+```
+### Data Access
+The general case is that Scala also provide **private**,**public** and **protected** access modifiers which is just as Java, C++ as an object-oriented language. Some examples for Java programmers:
+
+```Scala
+class Outer{
+    class Inner{
+        private def In() {println("I am in the loop!")}
+        class InnerMost {
+            In() //output: I am in the loop.
+        }
+    }
+    (new Inner).In() //Because it is private you cannot call this function, this line will give you an error.
+}
+```
+
+```Scala
+class Super{
+    //protected means public to subclass and private to unrelated class
+    protected def s() {"I am in a super class."}
+}
+
+class Sub extends Super {
+    s()//works
+}
+
+class other {
+    (new Super).s()//won't work
+}
+```
+when you do not give an exact **private** or **protected** before your declaration, the default one will be **public**.
+However the interesting thing is that Scala do provide a system for programmers to define different access to classes.
+A modifier of the form **private[X]** or **protected[X]** means that access is private or protected "up to" class, package or object type X.
+
+```Scala
+package physics{
+    package condensedPhysics{
+        class SolidStatePhysics{
+            private[physics] var commonTheorems;
+            private[condensedPhysics] var scientists = null;
+            private[this] var problems = null;
+            
+            def help( another : SolidStatePhysics) {
+                println(another.commonTheorems)
+                println(another.problems) // ERROR, the problems can only be accessed by the this reference
+            }
+        }
+    }
+}
+```
 
 
