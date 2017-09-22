@@ -245,6 +245,135 @@ Object Test {
     }
 }
 ```
-Stay TUNED.
+For loop is also valid in Collections:
 
+```Scala
+for (var x<- List){
+    statement;
+}
+```
+The List here is a collection of objects with same type.
+Scala also provide filters in the for loop:
+
+```Scala
+for (var x<-List,
+    if condition1; if condition2;....){//may have more conditions
+    statement
+}
+```
+**For loop with yield:** Scala provide a return syntax for the for loop with keyword **yield** through which you can store the list of return values.
+
+```Scala
+var retVar = for (x<-List,
+                    if condition1; if condition2;....}yield x
+```
+Scala does not support break and continue statement like JAVA, however, it provides another mechanism of break statement.
+
+```Scala
+import scala.util.control._
+
+val loop = new Breaks;//The scala.util.control package provides a special kind of object which is Breaks
+
+loop.breakable{//make loop always breakable
+    for (...){
+        statement
+        ...
+        loop.break//break loop
+    }
+}
+```
+
+Let's see an example:
+
+```Scala
+import scala.util.control._
+
+object Test(Args:Array[String]){
+    var i = 0;
+    val list = List{1,2,3,4,5,6,7,8}
+    
+    var loop = new Breaks
+    loop.breakable{
+        for (i <- list){
+            println(i)
+            if (i==4){
+                loop.break
+            }
+        }
+    }
+}           
+```
+The result will be
+
+```
+>scalac Test.scala
+>scala Test
+>1
+>2
+>3
+>4
+```
+
+For nested loops, we have to create several breakable loops.
+### Scala functions
+Function definiton format:
+
+```Scala
+def functionName ([list of parameters]) : [return type]//method create this should be abstract
+def functionName2 ([list of parameters]) : [return type] = {
+    function body
+    return expression
+}
+```
+
+let's just create a adding method.
+
+```Scala
+def addTwoInt (a: Int, b: Int) : Int = {
+    return a+b
+}
+```
+The **void** return type is **Unit**.
+
+```Scala
+def printMe() : Unit = {
+    println("Hi, I am Scala!")
+}
+```
+Calling functions in Scala
+
+```Scala
+functionName([list of parameters])
+[Instance].methodName([list of parameters])
+```
+Scala functions are the core part of Scala language, asides from the normal syntax above. Scala functions can be called through various ways.
+#### Functions call by name
+The normal functions calls parameters by value, which means that the input parameters' values are already fixed when the function is called. However, there is another way to call parameters. What if we can call an expression with no definite values into the function. The expression's value is only invoked when the function calls it.
+A call-by-name mechanism passes a code block to the calling functions and each time it calls the code block passing through a parameter, the block will be evaluated and executed.
+
+```Scala
+object Test{
+    def main(Args : Array[String]) {
+            delay(time())
+    }
+    def time(){
+        println("Getting time in nanoseconds.")
+        System.nanoTime
+    }
+    def delayed(t :=> long){// => means call by name
+        println("In delayed medthod")
+        println("param t: "+t)
+        t
+    }
+}
+``` 
+The result is:
+
+```Scala
+In delayed method
+Getting time in nanoseconds
+param t: //(long integer)
+Getting time in nanoseconds
+
+```
 
