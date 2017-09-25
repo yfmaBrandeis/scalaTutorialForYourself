@@ -406,6 +406,48 @@ def addTwo(x:Double = 5.0,y:Double = 3.0) = {
 }
 ```
 Scala is so-called functional programming language because it can pass function as a parameter into a function.
+There are also other ways to declare the functions:
 
+```Scala
+var mul = (x:Int,y:Int) => x*y
+var useDir = () => {System.getProperty("user.dir")}
+```
+### Scala Closures
+A closure is a function that return value depends on the value of one or more variables outside the function which is kind of easy.
+### Scala Strings
+How to create strings？
+
+```Scala
+val greeting = "Hello World!"
+val greeting2 : String = "Hello World!"
+```
+String type is very similar to the String Class in Java, so the method is a lot like the Java String.(Other methods canb
+Concatenating the string can use either `+ or String.concat(String)`
+#### Format String
+The `printf` method has been a default method in Scala, which makes it quiet a convenient way to print format strings.
+### Scala Arrays
+Scala also provides the general array data structure.
+
+```Scala
+var z:Array[String] = new Array[String](3)
+var z2 = new Array[String](3)
+z(0) = "zara";z(1) = "nuha";z(2) = "Ayan"
+var z3 = {"zara","nuha","Ayan"}
+``` 
+**Multidimensional Array**
+
+```Scala
+var matrix=new Array[Int](3,3)//3*3 matrix
+```
+The interesting thing of array in Scala is that arrays can concatenate each other using the following command:
+
+```Scala
+import Array._ //important
+...
+List3 = concat(List1,List2)
+...
+```
+
+The keyword **range** in Array package also has the same syntax as python **range**.
 
 
