@@ -374,6 +374,38 @@ In delayed method
 Getting time in nanoseconds
 param t: //(long integer)
 Getting time in nanoseconds
+param t: x
+Getting time in nanoseconds
 
 ```
+Function with variable arguments
+Scala provide a similar system as Python to allow parameters passing into the function to be repeated.
+
+```Scala
+object Test{
+    def main(args:Array[String]){
+        printStrings("Hello","Scala","Python")
+    }
+    
+    def printStrings(Args:String*) = {//Args:String* tells that this is a list of parameters
+    var i : Int = 0
+    for (arg <- Args){
+        prinln("Args["+i+"]"+arg)
+        i++
+    }
+}   
+```
+Scala also provide default parameters values.
+
+```Scala
+def addTwo(x:Double = 5.0,y:Double = 3.0) = {
+    var Sum:Double = 0
+    Sum = a+b
+    
+    return sum
+}
+```
+Scala is so-called functional programming language because it can pass function as a parameter into a function.
+
+
 
